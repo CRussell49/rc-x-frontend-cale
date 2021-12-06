@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useWallet } from "use-wallet";
 import PropTypes from "prop-types";
+
 import {
   DataView,
   ContextMenu,
@@ -38,9 +39,10 @@ import fundInfo from "../../data/fundInfo.json";
 import Player from "../Player/Player";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause, faPlayCircle} from '@fortawesome/free-solid-svg-icons';
+import despacito from "./despacito.mp3";
 
 function FundsList({ fundsListData, balances, hideInspectButton }) {
-  const [songs] = useState([{title: "Song 1", artist: "Artist 1", img_src: "./src/assets/ShapeOfYou.png", src: "./src/assets/music/despacito_mp3.mp3", coin: "SNG"}, {title: "Song 2", artist: "Artist 2", img_src: "./src/assets/Despacito.jpeg", src: "./src/assets/music/despacito_mp3.mp3", coin: "SNG"}])
+  const [songs] = useState([{title: "Song 1", artist: "Artist 1", img_src: "./src/assets/ShapeOfYou.png", src: despacito, coin: "SNG"}, {title: "Song 2", artist: "Artist 2", img_src: "./src/assets/Despacito.jpeg", src: "./src/assets/music/despacito.mp3", coin: "SNG"}])
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const {
     isVaultIdFavorited,

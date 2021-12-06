@@ -106,6 +106,7 @@ function Site({ selectorNetworks }) {
     */
     const _fundsData = cleanFundsData(dummyFundInfo);
     setFundsData(_fundsData);
+    console.log(_fundsData);
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -65,7 +65,7 @@ function FundsIndex({ fundsData, balances, getSelection, setSelection }) {
         } else {
           visible2 = true;
         }
-        return true;
+        return visible1 && visible2;
       })
       .filter(
         (elem) =>
