@@ -26,6 +26,7 @@ import CreateFundPanel from "../InnerPanels/CreateFundPanel";
 import Web3 from "web3";
 
 import FundsList from "../FundsList/FundsList";
+import ArtistsList from "../ArtistsList/ArtistsList";
 
 function FundsIndex({ fundsData, balances, getSelection, setSelection }) {
   const {
@@ -107,7 +108,7 @@ function FundsIndex({ fundsData, balances, getSelection, setSelection }) {
           </div>
         }
       />
-      <FundsList fundsListData={getVisibleFundsData()} balances={balances} />
+      <FundsList fundsListData={getVisibleFundsData()} balances={balances} /> 
     </div>
   );
 }

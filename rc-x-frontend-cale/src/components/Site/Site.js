@@ -10,6 +10,7 @@ import Welcome from "../Welcome/Welcome";
 import RoundButton from "./RoundButton/RoundButton";
 import Landing from "../Landing/Landing";
 import FundsIndex from "../FundsIndex/FundsIndex";
+//import ArtistsIndex from "../ArtistsIndex/ArtistsIndex.js";
 import D1FundList from "../D1FundList/D1FundList";
 import Backend from "../Backend/Backend";
 import FundView from "../FundView/FundView";
@@ -18,6 +19,8 @@ import Tutorial from "../Tutorial/Tutorial";
 import fundInfo from "../../data/fundInfo.json";
 
 import dummyFundInfo from "../../dummydata/dummydata.json"
+import dummyArtistFundInfo from "../../artistdummydata/artist_dummydata.json"
+import ArtistsIndex from "../ArtistsIndex/ArtistsIndex";
 
 
 function Site({ selectorNetworks }) {
@@ -42,6 +45,8 @@ function Site({ selectorNetworks }) {
 
   const [eventsCount, setEventsCount] = useState(null);
   const [fundsData, setFundsData] = useState(null);
+  const [artistFundsData, setArtistFundsData] = useState(null);
+  const [songsOrArtists, setartistOrSongs] = useState(true); // true corresponds to songs, false with artists
 
   const [balances, setBalances] = useState(null);
 
@@ -54,6 +59,8 @@ function Site({ selectorNetworks }) {
     _selections[index] = value;
     setSelections(_selections);
   };
+
+
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchBalances = async () => {
@@ -107,6 +114,10 @@ function Site({ selectorNetworks }) {
     const _fundsData = cleanFundsData(dummyFundInfo);
     setFundsData(_fundsData);
     console.log(_fundsData);
+
+    const _artistFundsData = cleanFundsData(dummyArtistFundInfo);
+    setArtistFundsData(_artistFundsData);
+    console.log(_fun_artistFundsDatadsData);
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -168,6 +179,7 @@ function Site({ selectorNetworks }) {
             `}
           >
             <RoundButton text="Homepage" link="/" />
+            <RoundButton text="Artists" link="/artists" />
             <a
               href="https://docs.nftx.org/tutorials/"
               target="_blank"
@@ -208,7 +220,7 @@ function Site({ selectorNetworks }) {
                 margin: 0 10px;
               `}
             >
-              <RoundButton
+              <RoundButton 
                 text={
                   <div
                     css={`
@@ -218,39 +230,6 @@ function Site({ selectorNetworks }) {
                     `}
                   >
                     SONGS
-                    <div
-                      css={`
-                        display: inline-block;
-                        position: absolute;
-                        right: -5px;
-                        bottom: -5px;
-                      `}
-                    >
-                      <IconExternal />
-                    </div>
-                  </div>
-                }
-              />
-            </a>
-            <a
-              href="https://gallery.nftx.org"
-              target="_blank"
-              rel="noreferrer"
-              css={`
-                text-decoration: none;
-                margin: 0 10px;
-              `}
-            >
-              <RoundButton
-                text={
-                  <div
-                    css={`
-                      position: relative;
-                      padding-left: 1px;
-                      padding-right: 26px;
-                    `}
-                  >
-                    ARTISTS
                     <div
                       css={`
                         display: inline-block;
@@ -290,6 +269,19 @@ function Site({ selectorNetworks }) {
               />
               
             </Route>
+
+            <Route path="/artists" exact>
+              
+              <ArtistsIndex
+              
+                fundsData={artistFundsData}
+                balances={balances}
+                getSelection={getSelection}
+                setSelection={setSelection}
+              />
+              
+            </Route>
+
             <Route path="/backend">
               <Backend />
             </Route>
