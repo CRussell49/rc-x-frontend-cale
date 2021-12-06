@@ -16,13 +16,7 @@ a {
   outline: 0;
 }
 
-.c-player {
-  display: block;
-  background-color: #313131;
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: inset -6px -6px 12px rgba(0, 0, 0, 0.8), inset 6px 6px 12px rgba(255, 255, 255, 0.4);
-}
+
 
 .c-player > h4 {
   color: #FFF;
@@ -80,14 +74,14 @@ a {
 .c-player--controls .play-btn {
   display: flex;
   margin: 0px;
-  padding: 20px;
+  padding: 10px;
   border-radius: 50%;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8), -4px -4px 10px rgba(255, 255, 255, 0.4), inset -4px -4px 10px rgba(0, 0, 0, 0.4), inset 4px 4px 10px rgba(255, 255, 255, 0.4);
   border: none;
   outline: none;
-  margin-right: 50px;
-  background-color: #FFCE00;
+  margin-right: 0px;
+  background-color: #cf4978;
   color: #FFF;
-  font-size: 24px;
+  font-size: 10px;
   cursor: pointer;
 }

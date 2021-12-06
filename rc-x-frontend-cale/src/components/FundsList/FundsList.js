@@ -40,9 +40,19 @@ import Player from "../Player/Player";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause, faPlayCircle} from '@fortawesome/free-solid-svg-icons';
 import despacito from "./despacito.mp3";
+import shape from "./ShapeOfYou.mp3";
+import boHem from "./BoHem.mp3";
+import uptown from "./Uptown.mp3";
+import sorry from "./Sorry.mp3";
+import roar from "./Roar.mp3";
+import blinding from "./Blinding.mp3";
+import happy from "./Happy.mp3";
+import gag from "./Gag.mp3";
+import call from "./Call.mp3";
+import someone from "./Someone.mp3";
 
 function FundsList({ fundsListData, balances, hideInspectButton }) {
-  const [songs] = useState([{title: "Song 1", artist: "Artist 1", img_src: "./src/assets/ShapeOfYou.png", src: despacito, coin: "SNG"}, {title: "Song 2", artist: "Artist 2", img_src: "./src/assets/Despacito.jpeg", src: "./src/assets/music/despacito.mp3", coin: "SNG"}])
+  const [songs] = useState([{src: shape}, {src: despacito}, {src: boHem}, {src: uptown}, {src: sorry}, {src: roar},{src: blinding}, {src: happy}, {src: gag}, {src: call}, {src: someone}])
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const {
     isVaultIdFavorited,
@@ -300,9 +310,11 @@ function FundsList({ fundsListData, balances, hideInspectButton }) {
                     })
               }
             >
-              {isVaultIdFavorited(vaultId) ? <faPlay /> : <faPause />}
+              {isVaultIdFavorited(vaultId) ? <iconStarFilled /> : <iconStar />}
+              
               <Player
-                currentSongIndex={currentSongIndex}
+          
+                currentSongIndex={whatSong(fundSymbol)}
                 setCurrentSongIndex={setCurrentSongIndex}
                 songs={songs}
               />
@@ -411,5 +423,33 @@ FundsList.propTypes = {
   entries: PropTypes.arrayOf(NftType),
   handleMint: PropTypes.func,
 };
+
+function whatSong(symbol) {
+  if (symbol == "SHAPE OF YOU") {
+    return 0;
+  } else if (symbol == "BOHEMIAN RHAPSODY") {
+    return 2;
+  } else if (symbol == "DESPACITO") {
+    return 1;
+  } else if (symbol == "UPTOWN FUNK") {
+    return 3;
+  } else if (symbol == "SORRY") {
+    return 4;
+  } else if (symbol == "ROAR") {
+    return 5;
+  } else if (symbol == "BLINDING LIGHTS") {
+    return 6;
+  } else if (symbol == "HAPPY") {
+    return 7;
+  } else if (symbol == "GANGNAM STYLE") {
+    return 8;
+  } else if (symbol == "CALL ME MAYBE") {
+    return 9;
+  } else if (symbol == "SOMEONE LIKE YOU") {
+    return 10;
+  } else {
+    return 1;
+  }
+}
 
 export default FundsList;
